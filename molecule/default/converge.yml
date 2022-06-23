@@ -2,7 +2,6 @@
 - name: Converge
   hosts: all
   gather_facts: false
-  tasks:
-    - name: "Include tmrblr.jdk"
-      ansible.builtin.include_role:
-        name: "tmrblr.jdk"
+  roles:
+    - role: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"
+      

@@ -2,9 +2,11 @@
 dependency:
   name: galaxy
 driver:
-  name: delegated
+  name: docker
 platforms:
-  - name: instance
+  - name: ubuntu
+    image: ubuntu:20.04
+    pre_build_image: true
 provisioner:
   name: ansible
 verifier:

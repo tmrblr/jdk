@@ -1,2 +1,8 @@
 ---
 # defaults file for jdk
+
+jdk_url: https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.tar.gz
+
+jdk_install_path: /opt/java
+
+jdk_env_vars: /etc/profile.d/jdk.sh
