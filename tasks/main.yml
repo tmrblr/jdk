@@ -1,0 +1,24 @@
+---
+# tasks file for jdk
+
+- name: Create {{ jdk_install_path }}
+  ansible.builtin.file:
+    path: "{{ jdk_install_path }}"
+    state: directory
+    
+- name: Unarchive {{ jdk_url }} to {{ jdk_install_path }}
+  ansible.builtin.unarchive:
+    src: "{{ jdk_url }}"
+    dest: "{{ jdk_install_path }}"
+    list_files: yes
+    remote_src: yes
+  register: jdk_path
+
+- name: Get JAVA_HOME
+  ansible.builtin.set_fact:
+    java_home: "{{ jdk_path.dest }}/{{ jdk_path.files | sort | first | dirname | dirname }}"
+
+- name: Set environment variables in {{ jdk_env_vars_path }}
+  ansible.builtin.copy:
+    dest: "{{ jdk_env_vars_path }}"
+    content: "{{ jdk_env_vars }}"
