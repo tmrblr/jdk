@@ -1,42 +1,45 @@
-Role Name
+
+JDK
 =========
 
-A brief description of the role goes here.
+ - [x] Installs archived JDK
+ - [x] Configures environment variables in a file in /etc/profile.d.
 
 Requirements
 ------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
-
-gtar
-python3
-python3-pip
+The role has been tested with **Docker.** Check *.j2 files in *molecule/default* for required packages for each distro.
 
 Role Variables
 --------------
+Check *defaults/main.yml* for examples. 
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+**jdk_url**
+[URL of archive with JDK](https://www.oracle.com/java/technologies/downloads/)
+**jdk_install_path**
+Where to unarchive JDK archive
+**jdk_env_vars_path**
+Full path for a file with environment variables
+**jdk_env_vars**
+List of environment variables (JAVA_HOME, PATH, etc)
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
 Example Playbook
 ----------------
+Install JDK 18:
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
+    - hosts: all
       roles:
-         - { role: username.rolename, x: 42 }
+        - role: tmrblr.jdk
+          vars:
+            jdk_url: https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.tar.gz
+            jdk_install_path: /opt/java
+            jdk_env_vars_path: /etc/profile.d/jdk.sh
+            jdk_env_vars: |
+              export JAVA_HOME={{ java_home }}
+			  export PATH=$PATH:{{ java_home }}/bin
 
 License
 -------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+MIT

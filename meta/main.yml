@@ -1,8 +1,8 @@
 galaxy_info:
-  author: your name
+  author: https://github.com/tmrblr
   namespace: tmrblr
-  description: your role description
-  company: your company (optional)
+  description: installs archived JDK and configures environment variables in a file in /etc/profile.d.
+ # company: your company (optional)
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
@@ -39,8 +39,25 @@ galaxy_info:
   #   - 1.0
   #   - 7
   #   - 99.99
+  platforms:
+  - name: Ubuntu
+    versions:
+    - focal
+  - name: Amazon Linux 2
+    versions:
+    - all
+  - name: EL
+    versions:
+    - 8
 
-  galaxy_tags: []
+  galaxy_tags:
+    - java
+    - jdk
+    - oracle
+    - linux
+    - ubuntu
+    - amazonlinux
+    - oraclelinux
     # List tags for your role here, one per line. A tag is a keyword that describes
     # and categorizes the role. Users find roles by searching for tags. Be sure to
     # remove the '[]' above, if you add tags to this list.

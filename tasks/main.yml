@@ -18,9 +18,7 @@
   ansible.builtin.set_fact:
     java_home: "{{ jdk_path.dest }}/{{ jdk_path.files | sort | first | dirname | dirname }}"
 
-- name: Set environment variables in {{ jdk_env_vars }}
+- name: Set environment variables in {{ jdk_env_vars_path }}
   ansible.builtin.copy:
-    dest: "{{ jdk_env_vars }}"
-    content: |
-      export JAVA_HOME={{ java_home }}
-      export PATH=$PATH:{{ java_home }}/bin
+    dest: "{{ jdk_env_vars_path }}"
+    content: "{{ jdk_env_vars }}"

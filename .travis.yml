@@ -16,6 +16,3 @@ install:
 script:
   # Basic role syntax check
   - molecule test
-
-# notifications:
-#   webhooks: https://galaxy.ansible.com/api/v1/notifications/
