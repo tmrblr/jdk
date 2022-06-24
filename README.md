@@ -14,12 +14,19 @@ Role Variables
 Check *defaults/main.yml* for examples. 
 
 **jdk_url**
+
 [URL of archive with JDK](https://www.oracle.com/java/technologies/downloads/)
+
 **jdk_install_path**
+
 Where to unarchive JDK archive
+
 **jdk_env_vars_path**
+
 Full path for a file with environment variables
+
 **jdk_env_vars**
+
 List of environment variables (JAVA_HOME, PATH, etc)
 
 Dependencies
