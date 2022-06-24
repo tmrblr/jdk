@@ -5,6 +5,11 @@
   hosts: all
   gather_facts: false
   tasks:
-  - name: Example assertion
-    ansible.builtin.assert:
-      that: true
+
+  - name: Check Java version
+    ansible.builtin.shell: . /etc/profile; java -version
+    register: java_version
+
+  - ansible.builtin.assert: 
+      that:
+        - java_version
