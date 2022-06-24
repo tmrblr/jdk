@@ -4,12 +4,12 @@ dependency:
 driver:
   name: docker
 platforms:
-  # - name: ubuntu
-  #   image: ubuntu:20.04
-  #   dockerfile: ubuntu2004.j2
-  # - name: amazonlinux
-  #   image: amazonlinux:2
-  #   dockerfile: amazonlinux2.j2
+  - name: ubuntu
+    image: ubuntu:20.04
+    dockerfile: ubuntu2004.j2
+  - name: amazonlinux
+    image: amazonlinux:2
+    dockerfile: amazonlinux2.j2
   - name: oraclelinux
     image: oraclelinux:8
     dockerfile: oraclelinux8.j2
