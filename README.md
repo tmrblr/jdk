@@ -38,7 +38,7 @@ Install JDK 18:
             jdk_env_vars_path: /etc/profile.d/jdk.sh
             jdk_env_vars: |
               export JAVA_HOME={{ java_home }}
-			  export PATH=$PATH:{{ java_home }}/bin
+              export PATH=$PATH:{{ java_home }}/bin
 
 License
 -------
